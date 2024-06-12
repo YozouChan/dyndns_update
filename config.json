@@ -1,0 +1,7 @@
+{
+  "apiKey": "your_api_key_here",
+  "domainName": "your_domain_name_here",
+  "zoneId": "", // Optional: Will be automatically added by the application if not present
+  "ipv4RecordId": "", // Optional: Will be automatically added by the application if not present
+  "ipv6RecordId": "" // Optional: Will be automatically added by the application if not present
+}
