@@ -129,8 +129,8 @@ const main = async () => {
     console.log("current ips", currentIps);
 
     // Create DNS records if they do not exist
-    if (!config.ipv4RecordId) createDynDNSRecords(currentIps.ipv4, "A");
-    if (!config.ipv6RecordId) createDynDNSRecords(currentIps.ipv6, "AAAA");
+    if (!config.ipv4RecordId && config.ipv4) createDynDNSRecords(currentIps.ipv4, "A");
+    if (!config.ipv6RecordId && config.ipv6) createDynDNSRecords(currentIps.ipv6, "AAAA");
 
     // Schedule a cron job to check IPs every 10 sec
     cron.schedule('10 * * * * *', async () => {
@@ -142,8 +142,8 @@ const main = async () => {
 
             currentIps.update(newCurrentIps);
 
-            updateDynDNS(currentIps.ipv4, config.ipv4RecordId);
-            updateDynDNS(currentIps.ipv6, config.ipv6RecordId);
+            if(config.ipv4) updateDynDNS(currentIps.ipv4, config.ipv4RecordId);
+            if(config.ipv6) updateDynDNS(currentIps.ipv6, config.ipv6RecordId);
         }
     });
 }
