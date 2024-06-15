@@ -68,7 +68,10 @@ Set up a cron job to check the IP addresses every second and update the DNS reco
 ## Linux Service
 To install the application as service on linux, simply run:
 ```
-npm 
+npm i node-service-linux 
+node service.js 
+systemctl status dyndnsupdate.service
+
 ```
 
 ## Contributing
